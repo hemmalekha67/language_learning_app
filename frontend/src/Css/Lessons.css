@@ -1,0 +1,128 @@
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  /* Lessons Container */
+  .lessons-container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* Language Selector */
+  .language-selector {
+    margin: 20px 0;
+  }
+  
+  .language-selector label {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  .language-selector select {
+    padding: 8px 15px;
+    font-size: 1.1em;
+    border: 2px solid #4CAF50;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    background-color: #fff;
+    color: #333;
+  }
+  
+  .language-selector select:hover {
+    border-color: #45a049;
+  }
+  
+  /* Lessons Section */
+  .lessons {
+    margin-top: 20px;
+  }
+  
+  .lesson {
+    background-color: #f4f4f4;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+  
+  .lesson:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .lesson h2 {
+    font-size: 1.8em;
+    color: #4CAF50;
+    margin-bottom: 10px;
+  }
+  
+  .lesson ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .lesson ul li {
+    font-size: 1.2em;
+    padding: 8px 0;
+    color: #555;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .lessons-container {
+      padding: 15px;
+    }
+  
+    .lesson h2 {
+      font-size: 1.5em;
+    }
+  
+    .lesson ul li {
+      font-size: 1em;
+    }
+  
+    .language-selector select {
+      font-size: 1em;
+      padding: 6px 12px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .lesson {
+      padding: 15px;
+    }
+  
+    .lesson h2 {
+      font-size: 1.3em;
+    }
+  
+    .lesson ul li {
+      font-size: 0.95em;
+    }
+  
+    .language-selector label {
+      font-size: 1em;
+    }
+  
+    .language-selector select {
+      font-size: 0.95em;
+      padding: 5px 10px;
+    }
+  }  
