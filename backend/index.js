@@ -2,7 +2,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
-const bcrypt = require("bcrypt");
 const User = require("./models/userSchema");
 
 dotenv.config();
@@ -12,16 +11,13 @@ app.use(express.json());
 
 const PORT = 4000;
 
-
 mongoose.connect(process.env.MONGODB_URL)
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.log("MongoDB Connection Failed", err));
 
-
 app.get("/", (req, res) => {
   res.send("Welcome to the Language Learning Backend!");
 });
-
 
 app.post("/signup", async (req, res) => {
   const { firstname, lastname, username, email, password } = req.body;
@@ -32,13 +28,12 @@ app.post("/signup", async (req, res) => {
       return res.status(400).json({ message: "Email already exists" });
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = new User({
       firstname,
       lastname,
       username,
       email,
-      password: hashedPassword
+      password 
     });
 
     await newUser.save();
@@ -49,7 +44,6 @@ app.post("/signup", async (req, res) => {
   }
 });
 
-
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
@@ -57,8 +51,9 @@ app.post("/login", async (req, res) => {
     const user = await User.findOne({ email });
     if (!user) return res.status(400).json({ message: "User not found" });
 
-    const isPasswordCorrect = await bcrypt.compare(password, user.password);
-    if (!isPasswordCorrect) return res.status(401).json({ message: "Incorrect password" });
+    if (password !== user.password) {
+      return res.status(401).json({ message: "Incorrect password" });
+    }
 
     res.status(200).json({
       message: "Login successful",
