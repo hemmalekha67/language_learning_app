@@ -15,7 +15,7 @@ const Signup = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:4000/signup", {
+      const response = await axios.post("https://language-learning-app-j004.onrender.com/signup", {
         firstname,
         lastname,
         username,
